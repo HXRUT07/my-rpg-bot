@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import google.generativeai as genai
 import os  # <--- เพิ่มตัวนี้เข้ามา เพื่อดึงค่าจากตู้เซฟ
+import keep_alive
 
 # ==========================================
 # 🔴 โซนตั้งค่า (ลบรหัสจริงออกให้หมด!)
@@ -119,5 +120,7 @@ async def on_message(message):
             )
 
     await bot.process_commands(message)
+
+keep_alive.keep_alive()
 
 bot.run(DISCORD_TOKEN)
